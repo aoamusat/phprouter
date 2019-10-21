@@ -17,7 +17,10 @@
 		 */
 		public $routes = [
 			'GET' => [],
-			'POST' => []
+			'POST' => [],
+			'DELETE' => [],
+			'PATCH' => [],
+			'PUT' => array()
 		];
 
 		/**
@@ -33,7 +36,7 @@
 		}
 
 		/**
-		 * Forward the URI traffic to a specific controller based on the request method
+		 * Forward the URI traffic to a specific controller file
 		 * @param string $uri
 		 * @param string $requestMethod
 		 * @return mixed
@@ -70,5 +73,35 @@
 		public function post($uri, $handler)
 		{
 			$this->routes['POST'][$uri] = $handler;
+		}
+
+		/**
+		 * Handles PUT requests
+		 * @param string $uri
+		 * @param string $handler
+		 */
+		public function put($uri, $handler)
+		{
+			$this->routes['PUT'][$uri] = $handler;
+		}
+
+		/**
+		 * Handles DELETE requests
+		 * @param string $uri
+		 * @param string $handler
+		 */
+		public function delete($uri, $handler)
+		{
+			$this->routes['DELETE'][$uri] = $handler;
+		}
+
+		/**
+		 * Handles PATCH requests
+		 * @param string $uri
+		 * @param string $handler
+		 */
+		public function post($uri, $handler)
+		{
+			$this->routes['PATCH'][$uri] = $handler;
 		}
 	}
